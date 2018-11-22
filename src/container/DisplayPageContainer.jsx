@@ -6,24 +6,30 @@ import { fetchItem } from '../actions/addEdit';
 const DisplayPageContainer=(props)=>{
     
         console.log("we've reached inside DisplayPageConatiner");
+        console.log(props);
         return(<div>
                 <button onClick={()=>props.dispatch(fetchItem())}>Fetch API</button>
                  
                 { props.isLoading ?
                 <p>Loading...</p>:
-                <DisplayComponent items={props.items} /> }
+                <DisplayComponent items={props.data} /> }
         </div>);
 }
 
-const mapStateToProps=(state)=>{
-        return {
-                items:state.items.data,
-                isLoading:state.isLoading,
-                error:state.error
-        };
-}
+// const mapStateToProps=(state)=>{
+//         return {
+//                 items:state.items.data,
+//                 isLoading:state.isLoading,
+//                 error:state.error
+//         };
+// }
 
-export default connect(mapStateToProps)(DisplayPageContainer);
+//export default connect(mapStateToProps)(DisplayPageContainer);
+
+export default connect(state=>{
+        console.log(state);
+        return state;
+})(DisplayPageContainer);
 
 //set isLoading false in reducer to load initial state
 //initial state will be empty

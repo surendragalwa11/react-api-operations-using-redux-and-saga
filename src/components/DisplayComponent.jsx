@@ -13,7 +13,7 @@ class DisplayComponent extends Component
                     <th>First Name</th>
                     <th>Last Name</th>
                     <th>Picture </th>
-                    <th>Edit row</th>
+                    
                 </tr>
             </thead>
             <tbody>

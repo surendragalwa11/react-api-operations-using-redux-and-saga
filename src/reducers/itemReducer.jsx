@@ -36,7 +36,7 @@ export default (state=initialState,action)=>{
             return { ...state, isLoading:true, error: null };
         
         case 'API_FETCH_SUCCESS': 
-            //console.log("API_FETCH_SUCCESS called in reducer");
+            console.log("API_FETCH_SUCCESS called in reducer");
             //console.log(action);
             //console.log(action.result);
             console.log(action.result.data);
@@ -44,7 +44,7 @@ export default (state=initialState,action)=>{
         
         case 'API_FETCH_FAILURE': 
             console.log("API_FETCH_FAILURE called in reducer");
-            return { ...state, isLoading: false, error: action.error };
+            return { ...state, isLoading: false, error: action.result.error };
         
         default : 
             console.log("default case called in reducer");
