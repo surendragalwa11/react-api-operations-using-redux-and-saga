@@ -1,15 +1,18 @@
 import React from 'react';
 import {connect} from 'react-redux';
 import DisplayComponent from '../components/DisplayComponent';
+import { fetchItem } from '../actions/addEdit';
 
 const DisplayPageContainer=(props)=>{
     
         console.log("we've reached inside DisplayPageConatiner");
-        return(
-                props.isLoading ?
+        return(<div>
+                <button onClick={()=>props.dispatch(fetchItem())}>Fetch API</button>
+                 
+                { props.isLoading ?
                 <p>Loading...</p>:
-                <DisplayComponent items={props.items} />
-        );
+                <DisplayComponent items={props.items} /> }
+        </div>);
 }
 
 const mapStateToProps=(state)=>{

@@ -2,11 +2,7 @@ const initialState={
     isLoading:true,
     error:undefined,
     items:{
-            "data":[{ 
-            "id":1,
-            "first_name":"George",
-            "last_name":"Bluth",
-            "avatar":"https://s3.amazonaws.com/uifaces/faces/twitter/calebogden/128.jpg"
+            "data":[{
            }]
     }
 };
@@ -40,8 +36,11 @@ export default (state=initialState,action)=>{
             return { ...state, isLoading:true, error: null };
         
         case 'API_FETCH_SUCCESS': 
-            console.log("API_FETCH_SUCCESS called in reducer");
-            return { ...state, isLoading: false, items: action.result.data };
+            //console.log("API_FETCH_SUCCESS called in reducer");
+            //console.log(action);
+            //console.log(action.result);
+            console.log(action.result.data);
+            return { ...state,isLoading: false,data:[...action.result.data] };
         
         case 'API_FETCH_FAILURE': 
             console.log("API_FETCH_FAILURE called in reducer");

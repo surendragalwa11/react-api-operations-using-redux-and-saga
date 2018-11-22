@@ -5,7 +5,7 @@ import { startFetchAPIRequest, startFetchAPISuccess, startFetchAPIFailure } from
 export default function* rootSaga()
 {
     console.log("Watcher saga is running");
-    yield takeEvery('ADD_ITEM', fetchAPI);
+    yield takeEvery('FETCHED_ITEM', fetchAPI);
 }
   
 function* fetchAPI()
@@ -19,6 +19,7 @@ function* fetchAPI()
             return fetch('https://reqres.in/api/users')
                    .then(res => res.json())
         });
+        console.log(result);
         yield put(startFetchAPISuccess(result));
         console.log(result);
     } 

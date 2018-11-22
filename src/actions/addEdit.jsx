@@ -17,14 +17,14 @@ export const deleteItem = (id) =>({
     id
 });
 
-export const fetchAPIRequest = () =>({
-    type:'API_FETCH_REQUEST'
-});
+// export const fetchAPIRequest = () =>({
+//     type:'API_FETCH_REQUEST'
+// });
 
-export const fetchAPISuccess = (result) =>({
-    type:'API_FETCH_SUCCESS',
-    result
-});
+// export const fetchAPISuccess = (result) =>({
+//     type:'API_FETCH_SUCCESS',
+//     result
+// });
 
 export const fetchAPIError = () =>({
     type:'API_FETCH_FAILURE',
@@ -57,19 +57,19 @@ export const startDeleteItem = (id) =>{
     };
 };
 
-export const startFetchAPIRequest=()=>{
-    return (dispatch,getState)=>{
-        console.log('startFetchAPIRequest ACTION CREATOR CALLED');
-        return dispatch(fetchAPIRequest);
-    }
-}
+// export const startFetchAPIRequest=()=>{
+//     return (dispatch,getState)=>{
+//         console.log('startFetchAPIRequest ACTION CREATOR CALLED');
+//         return dispatch(fetchAPIRequest);
+//     }
+// }
 
-export const startFetchAPISuccess=(result)=>{
-    return (dispatch,getState)=>{
-        console.log('startFetchAPISuccess ACTION CREATOR CALLED');
-        return dispatch(fetchAPISuccess(result));
-    }
-}
+// export const startFetchAPISuccess=(result)=>{
+//     return (dispatch,getState)=>{
+//         console.log('startFetchAPISuccess ACTION CREATOR CALLED');
+//         return dispatch(fetchAPISuccess(result));
+//     }
+// }
 
 export const startFetchAPIFailure=()=>{
     return (dispatch,getState)=>{
@@ -83,3 +83,20 @@ export const startFetchAPIFailure=()=>{
 //         return dispatch(showAllItem());
 //     };
 // };
+
+
+//action with action creator to run saga (2nd generator fn)
+export const fetchItem = () =>{
+    console.log("fetchItem inside action,called");
+    return { type:'FETCHED_ITEM'}
+}
+
+export const startFetchAPISuccess=(result)=>{
+        console.log('startFetchAPISuccess ACTION CREATOR CALLED');
+        return { type:'API_FETCH_SUCCESS',result };   
+}
+
+export const startFetchAPIRequest=()=>{
+        console.log('startFetchAPIRequest ACTION CREATOR CALLED');
+        return {type:'API_FETCH_REQUEST'}
+};
