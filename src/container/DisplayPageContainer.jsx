@@ -1,18 +1,29 @@
 import React from 'react';
 import {connect} from 'react-redux';
 import DisplayComponent from '../components/DisplayComponent';
-import { fetchItem } from '../actions/addEdit';
+import { fetchItem} from '../actions/addEdit';
+import AddItem  from '../components/AddItem';
+//import PopUp from '../components/PopUp';
+
 
 const DisplayPageContainer=(props)=>{
     
         console.log("we've reached inside DisplayPageConatiner");
         console.log(props);
-        return(<div>
-                <button onClick={()=>props.dispatch(fetchItem())}>Fetch API</button>
-                 
+        console.log("**DisplayPageConatiner:fetchItem action will be called on button click");
+        //props.dispatch(fetchItem());
+        return(<div >
+                <button type="button" className="btn btn-success"
+                        onClick={()=>props.dispatch(fetchItem())}>Fetch API</button> 
+
                 { props.isLoading ?
-                <p>Loading...</p>:
-                <DisplayComponent items={props.data} /> }
+                     <p>Loading...</p>:
+                    <div>
+                        <DisplayComponent items={props.data} />
+                        
+                        <AddItem />
+                    </div>    
+                }
         </div>);
 }
 
@@ -28,6 +39,7 @@ const DisplayPageContainer=(props)=>{
 
 export default connect(state=>{
         console.log(state);
+        console.log("DisplayPageContainer--mapping state to props in connect");
         return state;
 })(DisplayPageContainer);
 

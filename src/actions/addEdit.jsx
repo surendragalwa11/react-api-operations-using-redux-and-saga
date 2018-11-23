@@ -1,9 +1,9 @@
 //actions
 
-export const addItem = (item) =>({
-    type:'ADD_ITEM',
-    item
-});
+// export const addItem = (item) =>({
+//     type:'ADD_ITEM',
+//     item
+// });
 
 export const editItem = (id,updates)=>({
     type:'EDIT_ITEM',
@@ -36,12 +36,12 @@ export const fetchAPIError = () =>({
 
 //action creators
 
-export const startAddItem = (item)=>{
-    return (dispatch,getState)=>{
-        console.log('startAddItem ACTION CREATOR CALLED');
-        return dispatch(addItem(item));
-    };    
-};
+// export const startAddItem = (item)=>{
+//     return (dispatch,getState)=>{
+//         console.log('startAddItem ACTION CREATOR CALLED');
+//         return dispatch(addItem(item));
+//     };    
+// };
 
 export const startEditItem = (id,updates) =>{
     return (dispatch,getState)=>{
@@ -98,5 +98,11 @@ export const startFetchAPISuccess=(result)=>{
 
 export const startFetchAPIRequest=()=>{
         console.log('startFetchAPIRequest ACTION CREATOR CALLED');
-        return {type:'API_FETCH_REQUEST'}
+        return {type:'API_FETCH_REQUEST'};
 };
+
+export const addItem = (item) =>{
+    console.log("ADD_ITEM action called");
+    console.log(item);
+    return {type:'ADD_ITEM',item};
+}

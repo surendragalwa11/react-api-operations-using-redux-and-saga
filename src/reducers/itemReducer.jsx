@@ -4,7 +4,11 @@ const initialState={
     items:{
             "data":[{
            }]
-    }
+    },
+    fname:undefined,
+    lname:undefined,
+    iurl:undefined,
+    id:undefined
 };
 
 export default (state=initialState,action)=>{
@@ -13,7 +17,8 @@ export default (state=initialState,action)=>{
     {
         case 'ADD_ITEM' : 
             console.log("ADD_ITEM called in reducer");
-            return [...state,action.item];
+            console.log(action.item);
+            return {...state,data:[...action.item]};
         
         case 'EDIT_ITEM' : 
             console.log("EDIT_ITEM called in reducer");

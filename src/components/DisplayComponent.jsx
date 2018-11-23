@@ -1,4 +1,5 @@
 import React,{ Component } from 'react';
+import PopUp from './PopUp';
 
 class DisplayComponent extends Component
 {
@@ -13,7 +14,7 @@ class DisplayComponent extends Component
                     <th>First Name</th>
                     <th>Last Name</th>
                     <th>Picture </th>
-                    
+                    <th>Edit</th>
                 </tr>
             </thead>
             <tbody>
@@ -22,6 +23,7 @@ class DisplayComponent extends Component
                         <td>{ item.first_name } </td>
                         <td>{ item.last_name } </td>
                         <td> <img src={item.avatar} alt='pic' className="img-circle" height="170" width="170" /> </td>
+                        <td><PopUp /></td>
                     </tr>
                 ))}
             </tbody>

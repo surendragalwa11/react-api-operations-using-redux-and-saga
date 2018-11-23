@@ -21,6 +21,7 @@ function* fetchAPI()
         });
         console.log(result);
         yield put(startFetchAPISuccess(result));
+              
         console.log(result);
     } 
     catch (error)
