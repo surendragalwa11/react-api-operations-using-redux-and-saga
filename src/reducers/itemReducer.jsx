@@ -5,7 +5,7 @@ const initialState={
             "data":[{
            }]
     },
-    fname:undefined,
+    fname:'',
     lname:undefined,
     iurl:undefined,
     id:undefined
@@ -18,7 +18,11 @@ export default (state=initialState,action)=>{
         case 'ADD_ITEM' : 
             console.log("ADD_ITEM called in reducer");
             console.log(action.item);
-            return {...state,data:[...action.item]};
+            console.log(state);
+            console.log(state.items);
+            console.log(action.item.data);
+            console.log({items:[...state.items,...action.item.data]});
+            return ({items:[...state.items,...action.item.data]});
         
         case 'EDIT_ITEM' : 
             console.log("EDIT_ITEM called in reducer");
@@ -45,7 +49,9 @@ export default (state=initialState,action)=>{
             //console.log(action);
             //console.log(action.result);
             console.log(action.result.data);
-            return { ...state,isLoading: false,data:[...action.result.data] };
+            console.log(state);
+            console.log({ ...state,isLoading: false,items:[...action.result.data] });
+            return { ...state,isLoading: false,items:[...action.result.data] };
         
         case 'API_FETCH_FAILURE': 
             console.log("API_FETCH_FAILURE called in reducer");

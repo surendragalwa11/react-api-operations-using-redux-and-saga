@@ -41,8 +41,8 @@ const requestDog = () => {
   return { type: 'REQUESTED_DOG' }
 };
 
-const requestDogSuccess = (data) => {
-  return { type: 'REQUESTED_DOG_SUCCEEDED', url: data.message }
+const requestDogSuccess = (result) => {
+  return { type: 'REQUESTED_DOG_SUCCEEDED', url: result.message }
 };
 
 const requestDogError = () => {
@@ -61,12 +61,12 @@ function* watchFetchDog() {
 function* fetchDogAsync() {
   try {
     yield put(requestDog());
-    const data = yield call(() => {
+    const result = yield call(() => {
       return fetch('https://dog.ceo/api/breeds/image/random')
               .then(res => res.json())
       }
     );
-    yield put(requestDogSuccess(data));
+    yield put(requestDogSuccess(result));
   } catch (error) {
     yield put(requestDogError());
   }

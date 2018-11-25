@@ -1,11 +1,11 @@
 import React,{ Component } from 'react';
 
-class PopUp extends Component
+class EditRow extends Component
 {
     
     render()
     {
-        console.log("We're inside PopUp component");
+        console.log("We're inside EditRow component");
         return(
         <div>
             <div  onClick={this.props.onEditClick}>
@@ -67,5 +67,5 @@ class PopUp extends Component
     }
 }
 
-console.log("popup component call finished");
-export default PopUp;
+console.log("EditRow component call finished");
+export default EditRow;

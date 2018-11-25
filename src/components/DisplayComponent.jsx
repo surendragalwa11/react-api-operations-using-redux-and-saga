@@ -1,5 +1,6 @@
 import React,{ Component } from 'react';
-import PopUp from './PopUp';
+//import EditRow from './EditRow';
+
 
 class DisplayComponent extends Component
 {
@@ -7,6 +8,9 @@ class DisplayComponent extends Component
     {
         console.log("we're inside DisplayComponent");
         console.log(this.props);
+        console.log(this.props.items);
+        
+        
         return(<div>
         <table className="table table-hover">
             <thead >
@@ -23,12 +27,15 @@ class DisplayComponent extends Component
                         <td>{ item.first_name } </td>
                         <td>{ item.last_name } </td>
                         <td> <img src={item.avatar} alt='pic' className="img-circle" height="170" width="170" /> </td>
-                        <td><PopUp /></td>
+                        
+                        <td>Edit button </td>
                     </tr>
                 ))}
             </tbody>
         </table>
         </div>);
+        
+       
     }
 }
 
