@@ -60,7 +60,7 @@ class EditRowForm extends Component
         console.log("We've called EditRowForm component");
         return(
         <div>
-            <p>EditRowForm2</p>    
+            EditForm2    
         </div>);
     }
 }

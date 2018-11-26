@@ -6,6 +6,7 @@ import * as serviceWorker from './serviceWorker';
 import { Provider } from 'react-redux';
 import configureStore from './store/configureStore';
 import DisplayPageContainer from './container/DisplayPageContainer';
+import { Dashboard } from './components/Dashboard';
 //import { startAddItem } from './actions/addEdit';
 
 console.log("calling configureStore from index.html");
@@ -14,7 +15,7 @@ store.subscribe(()=>store.getState());
 console.log(store.getState());
 //store.dispatch(startAddItem({"first_name":"Surendra","last_name":"Choudhary"}));
 const jsx=(<Provider store={store}>
-                <DisplayPageContainer />
+                <Dashboard />
             </Provider>);
 
 

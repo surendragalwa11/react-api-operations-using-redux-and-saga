@@ -2,7 +2,7 @@ import React,{Component} from 'react';
 import {connect} from 'react-redux';
 import DisplayComponent from '../components/DisplayComponent';
 import { fetchItem} from '../actions/addEdit';
-import AddRow from '../components/AddRow';
+import ItemSelector from '../selectors/ItemSelector';
 
 
 class DisplayPageContainer extends Component
@@ -20,7 +20,7 @@ class DisplayPageContainer extends Component
                      <p>Loading...</p>:
                     <div>
                         <DisplayComponent items={this.props.items} />
-                        <AddRow />
+                        
                     </div>    
                 }
         </div>);
@@ -30,13 +30,20 @@ class DisplayPageContainer extends Component
 const mapStateToProps=(state)=>{
         console.log("DisplayPageContainer:mapStateToProps called");
         console.log(state);
-        
+        console.log({items:ItemSelector(state.items)});
+        console.log({items:state.items,isLoading:state.isLoading,error:state.error});
         return {
-                //items:startFetchAPISuccess(state.items.data)
-                items:state.items,
+                items:ItemSelector(state.items),
                 isLoading:state.isLoading,
                 error:state.error
         };
+
+        // return {
+        //         //items:startFetchAPISuccess(state.items.data)
+        //         items:state.items,
+        //         isLoading:state.isLoading,
+        //         error:state.error
+        // };
 }
 
 export default connect(mapStateToProps)(DisplayPageContainer);
