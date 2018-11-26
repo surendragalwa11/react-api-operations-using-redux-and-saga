@@ -13,6 +13,8 @@ const initialState={
 
 export default (state=initialState,action)=>{
     console.log("item reducer called!");
+    console.log(action);
+    console.log(state);
     switch(action.type)
     {
         case 'ADD_ITEM' : 
@@ -26,15 +28,24 @@ export default (state=initialState,action)=>{
         
         case 'EDIT_ITEM' : 
             console.log("EDIT_ITEM called in reducer");
-            return state.map(item=>{
+            return ({ items: state.items.map(item=>{
                 
                 if(item.id===action.id){
-                    return {...item,...action.updates };
+                    console.log(...action.updates);
+                    console.log(action);
+                    item.first_name=action.updates[0].first_name;
+                    item.last_name=action.updates[0].last_name;
+                    item.avatar=action.updates[0].avatar;
+                    return item;
+                    //return action.updates;
+                    //above line is single line replacement for line 36-39
+                    //but not working
                 }
                 else{
+                    console.log(item);
                     return item;
                 }
-            });
+            })});
 
         case 'DELETE_ITEM' : 
             console.log("DELETE_ITEM called in reducer");

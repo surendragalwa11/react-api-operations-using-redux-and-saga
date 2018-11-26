@@ -5,11 +5,11 @@
 //     item
 // });
 
-export const editItem = (id,updates)=>({
-    type:'EDIT_ITEM',
-    id,
-    updates
-});
+// export const editItem = (id,updates)=>({
+//     type:'EDIT_ITEM',
+//     id,
+//     updates
+// });
 
 
 export const deleteItem = (id) =>({
@@ -43,12 +43,12 @@ export const fetchAPIError = () =>({
 //     };    
 // };
 
-export const startEditItem = (id,updates) =>{
-    return (dispatch,getState)=>{
-        console.log('startEditItem ACTION CREATOR CALLED');
-        return dispatch(editItem(id,updates));
-    }    
-};
+// export const startEditItem = (id,updates) =>{
+//     return (dispatch,getState)=>{
+//         console.log('startEditItem ACTION CREATOR CALLED');
+//         return dispatch(editItem(id,updates));
+//     }    
+// };
 
 export const startDeleteItem = (id) =>{
     return (dispatch,getState)=>{
@@ -105,4 +105,11 @@ export const addItem = (item) =>{
     console.log("ADD_ITEM action called");
     console.log(item);
     return {type:'ADD_ITEM',item};
+};
+
+export const editItem=(id,updates)=>{
+    console.log("EDIT_ITEM action called");
+    console.log(id);
+    console.log(updates);
+    return {type:'EDIT_ITEM',id,updates}
 }

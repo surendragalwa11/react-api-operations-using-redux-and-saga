@@ -1,5 +1,5 @@
 import React,{ Component } from 'react';
-//import EditRow from './EditRow';
+import EditRow from './EditRow';
 
 
 class DisplayComponent extends Component
@@ -28,7 +28,7 @@ class DisplayComponent extends Component
                         <td>{ item.last_name } </td>
                         <td> <img src={item.avatar} alt='pic' className="img-circle" height="170" width="170" /> </td>
                         
-                        <td>Edit button </td>
+                        <td><EditRow id={item.id}/> </td>
                     </tr>
                 ))}
             </tbody>

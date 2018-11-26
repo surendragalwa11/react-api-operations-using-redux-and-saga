@@ -7,6 +7,7 @@ class AddRowForm extends Component
         super(props);
         console.log("Constructor of AddRowForm called");
         console.log(props);
+        
         this.state={
             lname:'',
             fname:'',
@@ -27,20 +28,20 @@ class AddRowForm extends Component
     }
     
 
-    onFnameChange=(e)=>{
+    onFNChange=(e)=>{
         const Fname=e.target.value;
         console.log("onFnameChange in AddRowForm, called");
         console.log(Fname);
         this.setState({fname:Fname});    
     };
-    onLnameChange=(e)=>{
+    onLNChange=(e)=>{
         const Lname=e.target.value;
         console.log("onLnameChange in AddRowForm, called");
         console.log(Lname);
         this.setState({lname:Lname});   
     };
     
-    onIurlChange=(e)=>{
+    onIUChange=(e)=>{
         const Iurl=e.target.value;
         console.log("onIurlChange in AddRowForm, called");
         console.log(Iurl);
@@ -74,19 +75,19 @@ class AddRowForm extends Component
                        
                                 <label htmlFor="fname">First name</label><br />
                                 <input type="text"  placeholder="first name"  autoFocus
-                                    onChange={this.onFnameChange}
+                                    onChange={this.onFNChange}
                                     className="form-control"  required 
                                 /> <br />
                     
                                 <label htmlFor="lname">Last name</label> <br />
                                 <input type="text" placeholder="last name" name="lname" 
-                                    onChange={this.onLnameChange} 
+                                    onChange={this.onLNChange} 
                                     className="form-control" required
                                 /> <br />
 
                                 <label htmlFor="iurl">Image url</label> <br />
                                 <input type="text" placeholder="image url" 
-                                    onChange={this.onIurlChange} name="iurl"
+                                    onChange={this.onIUChange} name="iurl"
                                     className="form-control" required
                                 /> <br /> <br />
                                 
